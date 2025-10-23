@@ -1,63 +1,27 @@
-# Ramu Solutions - Agencia de Inteligencia Artificial
+# Deploy Next.js to GitHub Pages
 
-![Ramu Solutions](https://img.shields.io/badge/IA-Agency-blue)
-![Next.js](https://img.shields.io/badge/Next.js-14-black)
-![SEO](https://img.shields.io/badge/SEO-Optimized-green)
+This is a Next.js template which can be deployed to GitHub Pages as a static site.
 
-Sitio web oficial de Ramu Solutions, una agencia especializada en soluciones de Inteligencia Artificial para empresas.
+## Deploying to GitHub Pages
 
-## 🚀 Características
+1.  Create a new public GitHub repository
+2.  Push the starter code to the `main` branch
+3.  On GitHub, go to **Settings** > **Pages** > **Source**, and choose **GitHub Actions** as the source
+4.  Make a commit and push it to see the changes on GitHub Pages
 
-- **Next.js 14** con App Router para mejor rendimiento y SEO
-- **SEO Optimizado** con metadatos completos, Open Graph y Twitter Cards
-- **Diseño Responsive** adaptado a todos los dispositivos
-- **Structured Data** con Schema.org para mejor indexación
-- **Sitemap y robots.txt** configurados automáticamente
-- **TypeScript** para mayor seguridad en el desarrollo
-- **Accesibilidad** cumpliendo con estándares web
-
-## 🛠️ Tecnologías
-
-- Next.js 14
-- React 18
-- TypeScript
-- CSS3
-
-## 📦 Instalación
+Congratulations! You should have a URL like:
 
 ```bash
-# Instalar dependencias
-npm install
-
-# Ejecutar en modo desarrollo
-npm run dev
-
-# Construir para producción
-npm run build
-
-# Ejecutar en producción
-npm start
+https://<github-user-name>.github.io/<github-project-name>/
 ```
 
-## 🌐 SEO Features
+For more information, see our [deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying/static-exports).
 
-- ✅ Meta tags optimizados
-- ✅ Open Graph tags para redes sociales
-- ✅ Twitter Cards
-- ✅ Structured data (JSON-LD)
-- ✅ Sitemap automático
-- ✅ robots.txt configurado
-- ✅ Manifest para PWA
-- ✅ Responsive y mobile-friendly
-- ✅ Semántica HTML5
+## Learn More
 
-## 📄 Páginas
+To learn more about Next.js, take a look at the following resources:
 
-- **Inicio**: Presentación de la agencia y servicios principales
-- **Servicios**: Descripción detallada de soluciones de IA
-- **Nosotros**: Información sobre Ramu Solutions
-- **Contacto**: Formulario y datos de contacto
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 📝 Licencia
-
-© 2024 Ramu Solutions. Todos los derechos reservados.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
