@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Next.js on GitHub Pages',
-  description: 'Deploy your static Next.js site to GitHub Pages.',
+  title: 'RaMu Solutions - Inteligencia Artificial para tu Empresa',
+  description: 'Desarrollamos soluciones inteligentes con IA. Integración de inteligencia artificial para empresas y startups.',
 };
 
 export default function RootLayout({
