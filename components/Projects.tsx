@@ -6,15 +6,15 @@ import { useRef } from 'react';
 
 const projects = [
   {
-    title: 'Sistema de Análisis de Sentimientos',
-    description: 'Plataforma de análisis de opiniones en redes sociales para una empresa de retail, procesando más de 100K menciones diarias.',
-    tools: ['PyTorch', 'Transformers', 'FastAPI', 'React'],
-    image: '📊',
+    title: 'Asistente Virtual por Voz a',
+    description: 'Asistente inteligente con reconocimiento y síntesis de voz para atención al cliente, integrado con base de conocimientos y procesamiento de lenguaje natural.',
+    tools: ['Reconocimiento de Voz', 'Text-to-Speech', 'WhatsApp', 'Telegram'],
+    image: '🎤',
   },
   {
-    title: 'Asistente Virtual Conversacional',
-    description: 'Chatbot inteligente para atención al cliente con integración de base de conocimientos y procesamiento de lenguaje natural.',
-    tools: ['LangChain', 'OpenAI', 'Vector DB', 'Node.js'],
+    title: 'Chatbot Conversacional',
+    description: 'Bot inteligente para atención al cliente con integración de base de conocimientos y procesamiento de lenguaje natural.',
+    tools: ['WhatsApp', 'Telegram', 'Web Chat'],
     image: '💬',
   },
   {

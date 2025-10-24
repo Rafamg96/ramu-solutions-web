@@ -72,7 +72,7 @@ export default function Footer() {
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="mailto:contact@ramusolutions.com"
+                href="mailto:info@ramu-solutions.eu"
                 className="w-10 h-10 bg-primary-900/50 hover:bg-tech-blue rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Email"
               >
