@@ -2,11 +2,59 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, FormEvent } from 'react';
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    const form = e.currentTarget; // Guardar referencia al formulario
+    const webhookUrl = process.env.NEXT_PUBLIC_RAMU_WEBHOOK_URL;
+    
+    if (!webhookUrl) {
+      console.error('RAMU_WEBHOOK_URL no está configurada');
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        form.reset(); // Usar la referencia guardada
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary-950 to-tech-dark">
@@ -19,11 +67,15 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-display text-white mb-4">
-            Contacto
+            Contacta con nosotros
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-tech-blue to-tech-lightBlue mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300">
-            Hablemos sobre tu próximo proyecto de IA
+          <p className="text-xl text-gray-300 mb-4">
+            ¿Tu empresa necesita inteligencia artificial? Hablemos
+          </p>
+          <p className="text-lg text-gray-400">
+            📍 Alcázar de San Juan, Ciudad Real, Castilla-La Mancha<br />
+            📞 Solicita tu consultoría gratuita
           </p>
         </motion.div>
 
@@ -33,7 +85,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-gradient-to-br from-primary-900/50 to-primary-950/50 backdrop-blur-sm p-8 md:p-12 rounded-xl border border-primary-800/30 shadow-lg"
         >
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -43,6 +95,7 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
+                  required
                   className="w-full px-4 py-3 bg-primary-950/50 border border-primary-800/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue transition-colors"
                   placeholder="Tu nombre"
                 />
@@ -55,6 +108,7 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
+                  required
                   className="w-full px-4 py-3 bg-primary-950/50 border border-primary-800/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue transition-colors"
                   placeholder="tu@email.com"
                 />
@@ -82,31 +136,45 @@ export default function Contact() {
                 id="message"
                 name="message"
                 rows={6}
+                required
                 className="w-full px-4 py-3 bg-primary-950/50 border border-primary-800/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue transition-colors resize-none"
-                placeholder="Cuéntanos sobre tu proyecto..."
+                placeholder="Cuéntanos qué necesita tu empresa: automatización, digitalización, formación en IA..."
               ></textarea>
             </div>
+
+            {submitStatus === 'success' && (
+              <div className="p-4 bg-green-900/50 border border-green-500/50 rounded-lg text-green-200 text-center">
+                ✓ Mensaje enviado correctamente. Te contactaremos pronto.
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="p-4 bg-red-900/50 border border-red-500/50 rounded-lg text-red-200 text-center">
+                ✗ Error al enviar el mensaje. Por favor, intenta de nuevo o contacta directamente a info@ramu-solutions.eu
+              </div>
+            )}
 
             <div className="text-center">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="px-8 py-4 bg-tech-blue hover:bg-tech-lightBlue text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-tech-blue/50"
+                disabled={isSubmitting}
+                className="px-8 py-4 bg-tech-blue hover:bg-tech-lightBlue text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-tech-blue/50 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enviar mensaje
+                {isSubmitting ? 'Enviando...' : 'Solicitar consultoría gratuita'}
               </motion.button>
             </div>
           </form>
 
           <div className="mt-12 pt-8 border-t border-primary-800/30 text-center">
-            <p className="text-gray-300 mb-4">O escríbenos directamente:</p>
+            <p className="text-gray-300 mb-4">Empresas de Alcázar de San Juan y alrededores, contáctanos:</p>
             <a
-              href="mailto:contact@ramusolutions.com"
-              className="inline-flex items-center text-tech-lightBlue hover:text-tech-blue transition-colors font-medium"
+              href="mailto:info@ramu-solutions.eu"
+              className="inline-flex items-center text-tech-lightBlue hover:text-tech-blue transition-colors font-medium text-lg"
             >
               <span className="mr-2">📧</span>
-              contact@ramusolutions.com
+              info@ramu-solutions.eu
             </a>
           </div>
         </motion.div>
