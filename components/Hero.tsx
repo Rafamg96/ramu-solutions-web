@@ -19,9 +19,9 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-7xl font-bold font-display text-white mb-6"
         >
-          Desarrollamos soluciones
+          Inteligencia Artificial para
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-tech-blue to-tech-lightBlue">
-            inteligentes con IA
+            tu negocio en Alcázar de San Juan
           </span>
         </motion.h1>
 
@@ -29,21 +29,37 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
         >
-          Integración de inteligencia artificial para empresas y startups.
+          Ayudamos a empresas de Ciudad Real y Castilla-La Mancha a digitalizar y automatizar sus procesos con tecnología de inteligencia artificial.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto"
+        >
+          Consultoría, implementación y formación en IA para transformar tu empresa
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="#projects"
+            href="#contact"
             className="inline-block px-8 py-4 bg-tech-blue hover:bg-tech-lightBlue text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-tech-blue/50"
           >
-            Ver proyectos
+            Solicitar consultoría gratuita
+          </a>
+          <a
+            href="#services"
+            className="inline-block px-8 py-4 bg-transparent border-2 border-tech-blue hover:bg-tech-blue/10 text-white font-semibold rounded-lg transition-all duration-300"
+          >
+            Nuestros servicios
           </a>
         </motion.div>
       </div>

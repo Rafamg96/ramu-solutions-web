@@ -6,24 +6,24 @@ import { useRef } from 'react';
 
 const services = [
   {
-    title: 'Modelos de lenguaje personalizados',
-    description: 'Desarrollamos y ajustamos modelos de lenguaje adaptados a las necesidades específicas de tu negocio.',
-    icon: '🧠',
+    title: 'Implementación de IA en tu negocio',
+    description: 'Integramos inteligencia artificial en empresas de Alcázar de San Juan para automatizar procesos, reducir costes y aumentar la productividad de tu equipo.',
+    icon: '�',
   },
   {
-    title: 'Visión por computadora',
-    description: 'Implementamos soluciones de reconocimiento y procesamiento de imágenes para automatizar procesos visuales.',
-    icon: '👁️',
+    title: 'Consultoría y formación en IA',
+    description: 'Asesoramiento personalizado para empresas de Ciudad Real que quieren iniciar su transformación digital con tecnología de inteligencia artificial.',
+    icon: '�',
   },
   {
-    title: 'Integración de IA en productos',
-    description: 'Incorporamos capacidades de IA en tus productos existentes para mejorar la experiencia del usuario.',
+    title: 'Automatización de procesos empresariales',
+    description: 'Diseñamos soluciones de automatización inteligente adaptadas a negocios locales: gestión documental, atención al cliente, análisis de datos y más.',
     icon: '⚡',
   },
   {
-    title: 'Consultoría técnica',
-    description: 'Asesoramos en estrategia y arquitectura de IA para maximizar el valor de tus inversiones tecnológicas.',
-    icon: '💡',
+    title: 'Chatbots y asistentes virtuales',
+    description: 'Desarrollamos chatbots con IA para mejorar la atención al cliente 24/7 en tu empresa de Castilla-La Mancha, aumentando ventas y satisfacción.',
+    icon: '�',
   },
 ];
 
@@ -42,8 +42,11 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-display text-white mb-4">
-            Qué hacemos
+            Servicios de IA para empresas
           </h2>
+          <p className="text-xl text-gray-300 mb-2">
+            Soluciones de inteligencia artificial en Alcázar de San Juan
+          </p>
           <div className="w-24 h-1 bg-gradient-to-r from-tech-blue to-tech-lightBlue mx-auto"></div>
         </motion.div>
 
