@@ -8,12 +8,12 @@ const services = [
   {
     title: 'Implementación de IA en tu negocio',
     description: 'Integramos inteligencia artificial en empresas de Alcázar de San Juan para automatizar procesos, reducir costes y aumentar la productividad de tu equipo.',
-    icon: '�',
+    icon: '🤖',
   },
   {
     title: 'Consultoría y formación en IA',
     description: 'Asesoramiento personalizado para empresas de Ciudad Real que quieren iniciar su transformación digital con tecnología de inteligencia artificial.',
-    icon: '�',
+    icon: '🎓',
   },
   {
     title: 'Automatización de procesos empresariales',
@@ -23,7 +23,7 @@ const services = [
   {
     title: 'Chatbots y asistentes virtuales',
     description: 'Desarrollamos chatbots con IA para mejorar la atención al cliente 24/7 en tu empresa de Castilla-La Mancha, aumentando ventas y satisfacción.',
-    icon: '�',
+    icon: '💬',
   },
 ];
 

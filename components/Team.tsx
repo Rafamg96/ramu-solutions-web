@@ -6,28 +6,10 @@ import { useRef } from 'react';
 
 const team = [
   {
-    name: 'Rafael Muñoz',
-    role: 'CEO & ML Engineer',
+    name: 'Rafael Muñoz González',
+    role: 'Ingeniero en Inteligencia artificial',
     specialty: 'Deep Learning & NLP',
     avatar: '👨‍💻',
-  },
-  {
-    name: 'María García',
-    role: 'AI Researcher',
-    specialty: 'Computer Vision',
-    avatar: '👩‍🔬',
-  },
-  {
-    name: 'Carlos López',
-    role: 'Data Scientist',
-    specialty: 'MLOps & Analytics',
-    avatar: '👨‍💼',
-  },
-  {
-    name: 'Ana Martínez',
-    role: 'Full Stack Developer',
-    specialty: 'AI Integration',
-    avatar: '👩‍💻',
   },
 ];
 
@@ -51,7 +33,7 @@ export default function Team() {
           <div className="w-24 h-1 bg-gradient-to-r from-tech-blue to-tech-lightBlue mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8 max-w-md mx-auto">
           {team.map((member, index) => (
             <motion.div
               key={index}
