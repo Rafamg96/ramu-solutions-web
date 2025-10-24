@@ -61,7 +61,7 @@ jobs:
       - name: Build with Next.js
         run: pnpm run build
         env:
-          NEXT_PUBLIC_RAMU_WEBHOOK_URL: ${{ secrets.RAMU_WEBHOOK_URL }}
+          NEXT_PUBLIC_RAMU_WEBHOOK_URL: https://n8nrmg-ayaxbqbmdxd8fcfj.spaincentral-01.azurewebsites.net/webhook/32fa2e0c-58ae-46a0-a0fe-499a0b8ced94
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
